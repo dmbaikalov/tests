@@ -1,0 +1,50 @@
+import { Page, test, expect, Locator } from "@playwright/test";
+
+export class PageHolder {
+  constructor(protected page: Page) {}
+}
+
+export abstract class Component extends PageHolder {}
+
+export abstract class BasePage extends PageHolder {
+  public pagePath: string = `${process.env.BASE_URL}`;
+
+  async open(path: string = '/') {
+    await this.page.goto(path || this.pagePath);
+  }
+
+  async isOpen(expected_url?: string) {
+    expect(this.page.url()).toBe(
+      expected_url || `${process.env.BASE_URL}${this.pagePath}`
+    );
+  }
+
+  async getTitle() {
+    return await this.page.title();
+  }
+
+  async getUrl() {
+    return this.page.url();
+  }
+
+  async wait(milliseconds: number) {
+    await this.page.waitForTimeout(milliseconds);
+  }
+
+  async waitForPageLoad() {
+    await this.page.waitForLoadState("domcontentloaded");
+  }
+
+  async isElementsVisible(selector: Locator) {
+    await expect(selector).toBeVisible();
+  }
+
+  async isElementNotVisible(selector: Locator) {
+    expect(selector).toBeHidden();
+  }
+}
+
+class LoginPage extends BasePage {
+
+  private usernameField: Locator = this.page.getByLabel('')
+}
