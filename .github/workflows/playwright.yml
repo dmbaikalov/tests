@@ -5,8 +5,8 @@ on:
   pull_request:
     branches: [ main, master ]
 env:
-  - BASE_URL=${{BASE_URL}}
-  - BASE_API_URL=${{BASE_API_URL}}
+  BASE_URL: ${{ vars.BASE_URL }}
+  BASE_API_URL: ${{ vars.BASE_API_URL }}
 
 jobs:
   test:
