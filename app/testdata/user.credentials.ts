@@ -1,4 +1,4 @@
-export const testData = {
+export const userData = {
 //rename
   users: {
     standard: {

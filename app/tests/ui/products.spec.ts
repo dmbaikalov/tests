@@ -1,14 +1,14 @@
 import { test, expect } from "../../fixtures/fixtures";
-import { testData } from "../../testdata/user.credentials";
+import { userData } from "../../testdata/user.credentials";
 
 test.describe('SauceDemo Products sorting functionality', () => {
 
     test('User is able to sort the product by Price', async ({ app }) => {
-        const userData = testData.users.standard;
+        const usersData = userData.users.standard;
 
         await test.step('Login to the application', async () => {
             await app.login.open();
-            await app.login.login(userData.username, userData.password);
+            await app.login.login(usersData.username, usersData.password);
             await expect(app.products.headerTitle).toHaveText('Products');
     });
 
@@ -23,11 +23,11 @@ test.describe('SauceDemo Products sorting functionality', () => {
   });   
 
   test('User is able to sort the product by Name', async ({ app }) => {
-        const userData = testData.users.standard;
+        const usersData = userData.users.standard;
 
         await test.step('Login to the application', async () => {
             await app.login.open();
-            await app.login.login(userData.username, userData.password);
+            await app.login.login(usersData.username, usersData.password);
             await expect(app.products.headerTitle).toHaveText('Products');
     });
 

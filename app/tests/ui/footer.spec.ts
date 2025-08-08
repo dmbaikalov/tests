@@ -1,5 +1,5 @@
 import { test, expect } from '../../fixtures/fixtures';
-import { testData } from '../../testdata/user.credentials';
+import { userData } from '../../testdata/user.credentials';
 import { footerLinks } from '../../testdata/footer.links';
 
 test.describe('Footer Scenarios', () => {
@@ -11,7 +11,7 @@ test.describe('Footer Scenarios', () => {
   });
 
    test('Footer is visible when logged in', async ({ app }) => {
-    const { username, password } = testData.users.standard
+    const { username, password } = userData.users.standard
         await test.step('Login to the application', async () => {
             await app.login.open();
             await app.login.login(username, password);
