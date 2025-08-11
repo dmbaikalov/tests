@@ -1,4 +1,4 @@
-import { Page, test, expect, Locator } from "@playwright/test";
+import { Page, expect, Locator } from "@playwright/test";
 
 export class PageHolder {
   constructor(protected page: Page) {}
@@ -9,7 +9,7 @@ export abstract class Component extends PageHolder {}
 export abstract class BasePage extends PageHolder {
   public pagePath: string = `${process.env.BASE_URL}`;
 
-  async open(path: string = '/') {
+  async open(path: string) {
     await this.page.goto(path || this.pagePath);
   }
 
@@ -42,9 +42,4 @@ export abstract class BasePage extends PageHolder {
   async isElementNotVisible(selector: Locator) {
     expect(selector).toBeHidden();
   }
-}
-
-class LoginPage extends BasePage {
-
-  private usernameField: Locator = this.page.getByLabel('')
 }

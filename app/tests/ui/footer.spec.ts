@@ -24,7 +24,7 @@ test.describe('Footer Scenarios', () => {
   });
 
     for (const { icon, tabName, expectedUrl } of footerLinks) {
-        test(`Clicking ${icon} icon redirects to correct URL`, async ({ app, context }) => {
+        test(`Validating that clicking ${icon} icon in the Footer redirects to correct URL`, async ({ app, context }) => {
         
         await test.step('Login to the application', async () => {
             await app.login.open();

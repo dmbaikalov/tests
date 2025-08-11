@@ -24,7 +24,7 @@ test.describe('SauceDemo Functionality', () => {
       expect(itemPrices.length).toBeGreaterThan(0);
       await app.cart.clickCheckoutButton();
       await expect(page).toHaveURL(/.*checkout-step-one.html/);
-      await app.checkout.enterInformation('John', 'Doe', '12345');
+      await app.checkout.enterUserInformation('John', 'Doe', '12345');
     });
 
     await test.step('Verify final total with tax', async () => {

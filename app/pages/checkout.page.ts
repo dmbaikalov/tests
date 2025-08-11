@@ -12,9 +12,7 @@ export class CheckoutPage extends BasePage {
     readonly totalLabel: Locator = this.page.locator('.summary_total_label');
     readonly checkoutBanner: Locator = this.page.locator('.complete-header');
 
-
-
-    async enterInformation(firstName: string, lastName: string, zipCode: string) {
+    async enterUserInformation(firstName: string, lastName: string, zipCode: string) {
         await this.firstNameInput.fill(firstName);
         await this.lastNameInput.fill(lastName);
         await this.postalCodeInput.fill(zipCode);
