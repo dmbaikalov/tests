@@ -4,7 +4,7 @@ import { footerLinks } from '../../testdata/footer.links';
 
 test.describe('Footer Scenarios', () => {
 
-    test('Footer is not visible when logged out', async ({ app }) => {
+    test('Footer is not visible when logged out', { tag: "@api" }, async ({ app }) => {
         await test.step('Check that footer is not visible', async () => {
             await expect(app.footer.footerContainer).not.toBeVisible();
     });

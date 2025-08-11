@@ -1,5 +1,5 @@
 import { APIResponse } from '@playwright/test';
-import { ApiClient } from '../utils/api.client';
+import { ApiClient } from './api.client';
 
 interface Product {
   id?: number;

@@ -1,5 +1,5 @@
 import { test as base } from '@playwright/test';
-import { ApiClient } from '../utils/api.client';
+import { ApiClient } from '../api/api.client';
 import { ProductsAPI } from '../api/api.products';
 import { UsersAPI } from '../api/api.users';
 

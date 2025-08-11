@@ -1,6 +1,6 @@
 import {  APIResponse, expect } from '@playwright/test';
 import { getRandomUserId } from '../utils/user.id.generator';
-import { ApiClient } from '../utils/api.client';
+import { ApiClient } from './api.client';
 
 interface LoginCredentials {
   username: string;

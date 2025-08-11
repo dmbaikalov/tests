@@ -1,16 +1,14 @@
 import { Page, expect, Locator } from "@playwright/test";
 
-export class PageHolder {
+export abstract class PageHolder {
   constructor(protected page: Page) {}
 }
-
-export abstract class Component extends PageHolder {}
 
 export abstract class BasePage extends PageHolder {
   public pagePath: string = `${process.env.BASE_URL}`;
 
-  async open(path: string) {
-    await this.page.goto(path || this.pagePath);
+  async open(path: string = '/', anotherPath?: string) {
+    await this.page.goto(anotherPath || path);
   }
 
   async isOpen(expected_url?: string) {
